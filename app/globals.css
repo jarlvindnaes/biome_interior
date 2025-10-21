@@ -3,6 +3,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Brand colors */
+  --color-primary: #000000;
+  --color-primary-hover: #1a1a1a;
+  --color-secondary: #2d5f3f;
+  --color-accent: #a8d5ba;
+  --color-earth: #8b7355;
+  --color-success: #2d5f3f;
 }
 
 @theme inline {

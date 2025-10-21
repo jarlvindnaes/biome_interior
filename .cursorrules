@@ -1,0 +1,248 @@
+# Cursor AI Rules for Stykka Circular Alliance
+
+## Project Overview
+This is the landing page for Stykka's Circular Alliance—a Nordic club for companies committed to circular construction practices. The site emphasizes action over talk, build-ready solutions over speculation, and measurable outcomes.
+
+## Design Philosophy
+
+### Nordic Minimalism
+- **Clean, purposeful design** with no clutter or greenwashing imagery
+- **Strong visual hierarchy** through strategic use of contrast and white space
+- **Intentional patterns** - subtle backgrounds that add depth without distraction
+- **Professional, serious tone** - we're talking to decision-makers, not consumers
+
+### Color Palette
+```css
+--color-primary: #000000;        /* Black - main text, buttons */
+--color-primary-hover: #1a1a1a;  /* Dark gray - hover states */
+--color-secondary: #2d5f3f;      /* Forest green - section backgrounds */
+--color-accent: #a8d5ba;         /* Soft green - highlights, badges */
+--color-earth: #8b7355;          /* Warm brown - accents */
+--color-success: #2d5f3f;        /* Forest green - checkmarks */
+```
+
+### Visual Hierarchy Pattern
+The page alternates between light and dark sections for maximum contrast:
+1. **Hero** - Dark gradient (black/green) with white text
+2. **Why Now** - White background with black text
+3. **Who It's For** - Dark green (#2d5f3f) with white text + glass-morphism card
+4. **What You Get** - White background with cards
+5. **Solutions Catalogue** - Light gradient with geometric pattern
+6. **Join Flow** - White background
+7. **Application Form** - Dark black gradient with frosted glass form
+8. **FAQ** - Light gray background
+
+### Background Treatments
+Each major section has a distinct background:
+- **Dot patterns** - CSS radial gradients for subtle texture
+- **Geometric SVG patterns** - Grid lines for technical feel
+- **Organic blobs** - Blurred circular shapes in brand colors
+- **Cross patterns** - Data URI SVG for fine texture
+- **Gradients** - Subtle color transitions for depth
+- **Glass-morphism** - Backdrop-blur + semi-transparent white on dark backgrounds
+
+## Technical Guidelines
+
+### Component Architecture
+- **Client components** - All interactive components use `'use client'` directive
+- **Section components** - Self-contained, independently styled sections
+- **UI components** - Reusable Button, Card, SectionContainer
+- **No SectionContainer on dark sections** - They manage their own backgrounds
+
+### Styling Conventions
+- **CSS Variables** - Use `var(--color-name)` for all brand colors
+- **Tailwind classes** - Utility-first approach for all styling
+- **Inline styles** - Only for complex patterns (SVG backgrounds, data URIs)
+- **Responsive design** - Mobile-first with `md:` and `lg:` breakpoints
+
+### Animation Guidelines
+- **Framer Motion** for all animations
+- **Scroll reveals** - `initial={{ opacity: 0, y: 20 }}` pattern
+- **Staggered delays** - Use `delay: index * 0.1` for lists
+- **Hover effects** - Subtle scale (1.02) and shadow changes
+- **viewport={{ once: true }}** - Animations trigger only once
+
+### Form Handling
+- **React Hook Form** - For all form validation
+- **Client-side validation** - Immediate feedback on errors
+- **Success states** - Replace form with confirmation message
+- **Accessible** - Labels, error messages, focus states
+
+## Content Guidelines
+
+### Tone of Voice
+- **Direct and confident** - "Doers get unfair advantages"
+- **No greenwashing** - Concrete metrics (kgCO₂e, %, repair SLAs)
+- **Action-oriented** - CTAs use "Apply", "Deploy", "Share", not "Learn more"
+- **Serious but approachable** - We're building a club, not selling products
+
+### Copy Principles
+- **Specificity over vagueness** - "–38% CO₂e" not "better for the planet"
+- **Citations** - Link to Reduction Roadmap, DGNB, Nordic Innovation
+- **Credibility signals** - "600+ firms", "Reduction Roadmap 2.0"
+- **Eligibility is clear** - Must have real project, share data, align with targets
+
+### Section Purpose
+1. **Hero** - Hook + dual CTAs (apply vs. browse)
+2. **Why Now** - Urgency + Reduction Roadmap alignment
+3. **Who It's For** - Filter audience + eligibility criteria
+4. **What You Get** - Value proposition (6 benefits)
+5. **Solutions Catalogue** - Proof of build-ready solutions
+6. **Join Flow** - Process transparency (4 steps)
+7. **Application Form** - Conversion point
+8. **FAQ** - Objection handling
+
+## Code Standards
+
+### File Organization
+```
+/components
+  /sections     - Page sections (Hero, WhyNow, etc.)
+  /ui          - Reusable components (Button, Card)
+/app
+  /circular-alliance - Main landing page
+  globals.css  - CSS variables + Tailwind imports
+```
+
+### Naming Conventions
+- **Components** - PascalCase (e.g., `WhatYouGet.tsx`)
+- **Props** - camelCase (e.g., `background`, `asLink`)
+- **CSS variables** - kebab-case (e.g., `--color-primary`)
+- **Files** - Match component name exactly
+
+### TypeScript
+- **Strict mode** - No `any` types
+- **Interface props** - Define interfaces for all component props
+- **Type safety** - Form data, API responses, event handlers
+
+### Performance
+- **Next.js Image** - Use `<Image>` for all images (when added)
+- **Code splitting** - Components lazy load as needed
+- **Minimal bundles** - Only import what's needed from libraries
+- **Optimistic animations** - Start before data loads
+
+## Deployment Checklist
+
+### Pre-Deploy
+- [ ] All CSS variables defined in `globals.css`
+- [ ] No console errors in production build
+- [ ] All links working (Reduction Roadmap, etc.)
+- [ ] Form submission endpoint configured
+- [ ] Real images added (replace placeholders)
+- [ ] SEO metadata reviewed
+- [ ] Lighthouse score > 90
+
+### Git Workflow
+- **Clear commits** - Describe what changed and why
+- **Branch naming** - `feature/section-name` or `fix/issue-description`
+- **Pull requests** - For major changes
+- **Keep main clean** - Only working, tested code
+
+## Common Patterns
+
+### Creating a New Section
+```typescript
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import { SectionContainer } from '../ui/SectionContainer';
+
+export const NewSection: React.FC = () => {
+  return (
+    <SectionContainer background="white">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        {/* Content */}
+      </motion.div>
+    </SectionContainer>
+  );
+};
+```
+
+### Dark Section with Pattern
+```typescript
+<section className="py-20 md:py-32 bg-[var(--color-secondary)] relative overflow-hidden">
+  {/* Pattern */}
+  <div className="absolute inset-0 opacity-10">
+    <div className="absolute inset-0" style={{
+      backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+      backgroundSize: '40px 40px'
+    }} />
+  </div>
+  
+  {/* Content */}
+  <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+    {/* ... */}
+  </div>
+</section>
+```
+
+### Button Usage
+```typescript
+// Primary - main actions
+<Button variant="primary" asLink href="#apply">
+  Apply to join →
+</Button>
+
+// Secondary - alternative actions
+<Button variant="secondary" asLink href="#catalogue">
+  Browse catalogue
+</Button>
+
+// Ghost - subtle actions
+<Button variant="ghost" asLink href="#">
+  Get template
+</Button>
+```
+
+## Editing Guidelines for AI
+
+### When Making Changes
+1. **Read existing code first** - Understand current patterns
+2. **Match the style** - Use same conventions, spacing, naming
+3. **Preserve CSS variables** - Don't hardcode colors
+4. **Test responsiveness** - Mobile, tablet, desktop
+5. **Keep accessibility** - Labels, ARIA, keyboard navigation
+
+### What NOT to Do
+- ❌ Don't add emoji unless explicitly requested
+- ❌ Don't use inline styles unless for complex patterns
+- ❌ Don't create new color values - use CSS variables
+- ❌ Don't remove `'use client'` from interactive components
+- ❌ Don't change the Nordic minimalist aesthetic
+- ❌ Don't add stock photos or generic imagery
+- ❌ Don't use vague greenwashing language
+
+### What TO Do
+- ✅ Use Framer Motion for all animations
+- ✅ Keep sections visually distinct (alternate light/dark)
+- ✅ Add background patterns to major sections
+- ✅ Use glass-morphism on dark backgrounds
+- ✅ Link to authoritative sources (Reduction Roadmap, DGNB)
+- ✅ Include specific metrics and numbers
+- ✅ Make CTAs action-oriented
+
+## Resources
+
+### External References
+- [Reduction Roadmap 2.0](https://reductionroadmap.dk/reduction-roadmap-2)
+- [Nordic Circular Construction](https://www.nordicinnovation.org/programs/nordic-circular-construction)
+- [DGNB Building Resource Passport](https://www.dgnb.de/en/sustainable-building/circular-building/building-resource-passport)
+
+### Documentation
+- `README.md` - Full project overview
+- `PROJECT_SUMMARY.md` - Detailed section breakdown
+- `QUICK_START.md` - 5-minute setup guide
+- `DEPLOYMENT.md` - Production deployment
+- `PRE_LAUNCH_CHECKLIST.md` - Launch readiness
+
+---
+
+**Last Updated:** October 2025  
+**Status:** ✅ Production Ready  
+**Aesthetic:** Nordic minimalism with strategic contrast
+
