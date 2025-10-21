@@ -50,15 +50,15 @@ export const FAQ: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
-              className="border border-gray-200 rounded-lg overflow-hidden"
+              className="border border-gray-300 rounded-lg overflow-hidden shadow-sm"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
+                className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors bg-white"
               >
-                <span className="font-semibold text-lg pr-4">{faq.question}</span>
+                <span className="font-semibold text-lg pr-4 text-[var(--color-primary)]">{faq.question}</span>
                 <svg
-                  className={`w-5 h-5 flex-shrink-0 transition-transform ${
+                  className={`w-5 h-5 flex-shrink-0 transition-transform text-[var(--color-primary)] ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
                   fill="none"
@@ -77,7 +77,7 @@ export const FAQ: React.FC = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="px-6 pb-4 text-gray-600">
+                    <div className="px-6 pb-4 text-gray-700 bg-white">
                       {faq.answer}
                     </div>
                   </motion.div>

@@ -103,14 +103,14 @@ export const ApplicationForm: React.FC = () => {
         >
           {/* Company / Org */}
           <div>
-            <label htmlFor="company" className="block text-sm font-medium mb-2">
+            <label htmlFor="company" className="block text-sm font-semibold mb-2 text-gray-900">
               Company / Organization *
             </label>
             <input
               id="company"
               type="text"
               {...register('company', { required: 'Company is required' })}
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent text-gray-900 bg-white"
             />
             {errors.company && (
               <p className="text-red-600 text-sm mt-1">{errors.company.message}</p>
@@ -120,28 +120,28 @@ export const ApplicationForm: React.FC = () => {
           {/* Name and Role */}
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-2">
+              <label htmlFor="name" className="block text-sm font-semibold mb-2 text-gray-900">
                 Your name *
               </label>
               <input
                 id="name"
                 type="text"
                 {...register('name', { required: 'Name is required' })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent text-gray-900 bg-white"
               />
               {errors.name && (
                 <p className="text-red-600 text-sm mt-1">{errors.name.message}</p>
               )}
             </div>
             <div>
-              <label htmlFor="role" className="block text-sm font-medium mb-2">
+              <label htmlFor="role" className="block text-sm font-semibold mb-2 text-gray-900">
                 Role *
               </label>
               <input
                 id="role"
                 type="text"
                 {...register('role', { required: 'Role is required' })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent text-gray-900 bg-white"
               />
               {errors.role && (
                 <p className="text-red-600 text-sm mt-1">{errors.role.message}</p>
@@ -152,7 +152,7 @@ export const ApplicationForm: React.FC = () => {
           {/* Email and Phone */}
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">
+              <label htmlFor="email" className="block text-sm font-semibold mb-2 text-gray-900">
                 Email *
               </label>
               <input
@@ -165,21 +165,21 @@ export const ApplicationForm: React.FC = () => {
                     message: 'Invalid email address'
                   }
                 })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent text-gray-900 bg-white"
               />
               {errors.email && (
                 <p className="text-red-600 text-sm mt-1">{errors.email.message}</p>
               )}
             </div>
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium mb-2">
+              <label htmlFor="phone" className="block text-sm font-semibold mb-2 text-gray-900">
                 Phone *
               </label>
               <input
                 id="phone"
                 type="tel"
                 {...register('phone', { required: 'Phone is required' })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent text-gray-900 bg-white"
               />
               {errors.phone && (
                 <p className="text-red-600 text-sm mt-1">{errors.phone.message}</p>
@@ -189,14 +189,14 @@ export const ApplicationForm: React.FC = () => {
 
           {/* Country */}
           <div>
-            <label htmlFor="country" className="block text-sm font-medium mb-2">
+            <label htmlFor="country" className="block text-sm font-semibold mb-2 text-gray-900">
               Country *
             </label>
             <input
               id="country"
               type="text"
               {...register('country', { required: 'Country is required' })}
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent text-gray-900 bg-white"
             />
             {errors.country && (
               <p className="text-red-600 text-sm mt-1">{errors.country.message}</p>
@@ -206,21 +206,21 @@ export const ApplicationForm: React.FC = () => {
           {/* Project Name and Timeline */}
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="projectName" className="block text-sm font-medium mb-2">
+              <label htmlFor="projectName" className="block text-sm font-semibold mb-2 text-gray-900">
                 Project name *
               </label>
               <input
                 id="projectName"
                 type="text"
                 {...register('projectName', { required: 'Project name is required' })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent text-gray-900 bg-white"
               />
               {errors.projectName && (
                 <p className="text-red-600 text-sm mt-1">{errors.projectName.message}</p>
               )}
             </div>
             <div>
-              <label htmlFor="projectTimeline" className="block text-sm font-medium mb-2">
+              <label htmlFor="projectTimeline" className="block text-sm font-semibold mb-2 text-gray-900">
                 Project timeline *
               </label>
               <input
@@ -228,7 +228,7 @@ export const ApplicationForm: React.FC = () => {
                 type="text"
                 placeholder="e.g., Q3 2025"
                 {...register('projectTimeline', { required: 'Timeline is required' })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent text-gray-900 bg-white placeholder:text-gray-500"
               />
               {errors.projectTimeline && (
                 <p className="text-red-600 text-sm mt-1">{errors.projectTimeline.message}</p>
@@ -238,13 +238,13 @@ export const ApplicationForm: React.FC = () => {
 
           {/* What to improve */}
           <div>
-            <label htmlFor="improvement" className="block text-sm font-medium mb-2">
+            <label htmlFor="improvement" className="block text-sm font-semibold mb-2 text-gray-900">
               What you want to improve *
             </label>
             <select
               id="improvement"
               {...register('improvement', { required: 'Please select an option' })}
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent text-gray-900 bg-white"
             >
               <option value="">Select an option</option>
               <option value="reduce-embodied-co2">Reduce embodied CO₂</option>
@@ -261,14 +261,14 @@ export const ApplicationForm: React.FC = () => {
 
           {/* Expected decision date */}
           <div>
-            <label htmlFor="decisionDate" className="block text-sm font-medium mb-2">
+            <label htmlFor="decisionDate" className="block text-sm font-semibold mb-2 text-gray-900">
               Expected decision date *
             </label>
             <input
               id="decisionDate"
               type="date"
               {...register('decisionDate', { required: 'Decision date is required' })}
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent text-gray-900 bg-white"
             />
             {errors.decisionDate && (
               <p className="text-red-600 text-sm mt-1">{errors.decisionDate.message}</p>
@@ -281,9 +281,9 @@ export const ApplicationForm: React.FC = () => {
               id="consent"
               type="checkbox"
               {...register('consent', { required: 'You must agree to continue' })}
-              className="mt-1 w-5 h-5 border-gray-300 rounded focus:ring-2 focus:ring-black"
+              className="mt-1 w-5 h-5 border-gray-300 rounded focus:ring-2 focus:ring-black text-black"
             />
-            <label htmlFor="consent" className="text-sm text-gray-700">
+            <label htmlFor="consent" className="text-sm font-medium text-gray-900">
               I agree to share non-sensitive learnings with the network. *
             </label>
           </div>
