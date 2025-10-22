@@ -10,10 +10,6 @@ import { BiomeWhoItsFor } from '@/components/sections/biome/BiomeWhoItsFor';
 import { BiomeAccessForm } from '@/components/sections/biome/BiomeAccessForm';
 import { BiomeFAQ } from '@/components/sections/biome/BiomeFAQ';
 
-// Force dynamic rendering to prevent static generation issues
-export const dynamic = 'force-dynamic';
-export const runtime = 'nodejs';
-
 export default function BiomePage() {
   const [showcaseImageIndex, setShowcaseImageIndex] = useState<number | undefined>(undefined);
 
