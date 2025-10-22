@@ -97,11 +97,11 @@ export const BiomeHero: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Luxury Scroll Indicator */}
+      {/* Luxury Scroll Indicator - positioned lower and more subtle */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: scrollIndicatorOpacity }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+        className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-1 sm:gap-2 z-10"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
@@ -110,13 +110,13 @@ export const BiomeHero: React.FC = () => {
             repeat: Infinity,
             ease: [0.43, 0.13, 0.23, 0.96]
           }}
-          className="flex flex-col items-center gap-2"
+          className="flex flex-col items-center gap-1 sm:gap-2"
         >
-          <span className="text-white/60 text-xs font-medium tracking-widest uppercase">
+          <span className="hidden sm:block text-white/60 text-xs font-medium tracking-widest uppercase">
             Scroll to explore
           </span>
           <svg 
-            className="w-5 h-5 text-white/60" 
+            className="w-4 h-4 sm:w-5 sm:h-5 text-white/50 sm:text-white/60" 
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24"
@@ -130,8 +130,8 @@ export const BiomeHero: React.FC = () => {
           </svg>
         </motion.div>
         
-        {/* Minimal scroll line */}
-        <div className="w-[1px] h-12 bg-gradient-to-b from-white/40 to-transparent mt-2" />
+        {/* Minimal scroll line - hidden on mobile */}
+        <div className="hidden sm:block w-[1px] h-8 md:h-12 bg-gradient-to-b from-white/40 to-transparent mt-2" />
       </motion.div>
     </section>
   );

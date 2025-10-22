@@ -10,15 +10,15 @@ interface BiomeShowcaseProps {
 export const BiomeShowcase: React.FC<BiomeShowcaseProps> = ({ externalIndex }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Image sequence - now with 7 images
+  // Image sequence - now with 7 images (reordered with last 3 first)
   const images = [
+    '/images/duplex-side-2.jpg',
+    '/images/osterbrogade-interior-a1.jpg',
+    '/images/osterbrogade-interior-a2.jpg',
     '/images/1.jpg',
     '/images/2.jpg',
     '/images/3.jpg',
     '/images/4.jpg',
-    '/images/duplex-side-2.jpg',
-    '/images/osterbrogade-interior-a1.jpg',
-    '/images/osterbrogade-interior-a2.jpg',
   ];
 
   // Sync with external control (from Evolution slider)
