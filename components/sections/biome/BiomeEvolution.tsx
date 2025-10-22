@@ -14,9 +14,8 @@ export const BiomeEvolution: React.FC<BiomeEvolutionProps> = ({ onStageClick }) 
     setCurrentStage(index);
     if (onStageClick) {
       onStageClick(index);
-      // Scroll to showcase section
-      const showcaseElement = document.querySelector('section') as HTMLElement; // First section is hero, second is what is biome, third is showcase
-      if (showcaseElement) {
+      // Scroll to showcase section (only in browser)
+      if (typeof window !== 'undefined') {
         const allSections = document.querySelectorAll('section');
         if (allSections[2]) { // Index 2 is the showcase section
           allSections[2].scrollIntoView({ behavior: 'smooth', block: 'center' });
