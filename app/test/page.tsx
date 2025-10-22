@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function TestPage() {
   const [mounted, setMounted] = useState(false);
@@ -87,7 +88,7 @@ export default function TestPage() {
           gap: '1rem',
           marginBottom: '2rem'
         }}>
-          <a 
+          <Link 
             href="/biome" 
             style={{
               display: 'block',
@@ -102,8 +103,8 @@ export default function TestPage() {
             }}
           >
             🎯 Go to /biome
-          </a>
-          <a 
+          </Link>
+          <Link 
             href="/" 
             style={{
               display: 'block',
@@ -119,7 +120,7 @@ export default function TestPage() {
             }}
           >
             🏠 Go to Root
-          </a>
+          </Link>
         </div>
 
         {/* Console Test */}
