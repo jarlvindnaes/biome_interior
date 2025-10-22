@@ -1,29 +1,68 @@
 'use client';
 
-import { useState } from 'react';
-import { BiomeHero } from '@/components/sections/biome/BiomeHero';
-import { WhatIsBiome } from '@/components/sections/biome/WhatIsBiome';
-import { BiomeShowcase } from '@/components/sections/biome/BiomeShowcase';
-import { BuildingBlocksLibrary } from '@/components/sections/biome/BuildingBlocksLibrary';
-import { BiomeEvolution } from '@/components/sections/biome/BiomeEvolution';
-import { BiomeWhoItsFor } from '@/components/sections/biome/BiomeWhoItsFor';
-import { BiomeAccessForm } from '@/components/sections/biome/BiomeAccessForm';
-import { BiomeFAQ } from '@/components/sections/biome/BiomeFAQ';
+import { useState, Suspense } from 'react';
+import dynamic from 'next/dynamic';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
+
+// Dynamic imports with loading states
+const BiomeHero = dynamic(() => import('@/components/sections/biome/BiomeHero').then(mod => ({ default: mod.BiomeHero })), {
+  loading: () => <div className="min-h-[85vh] bg-black animate-pulse" />,
+  ssr: true,
+});
+
+const WhatIsBiome = dynamic(() => import('@/components/sections/biome/WhatIsBiome').then(mod => ({ default: mod.WhatIsBiome })), {
+  loading: () => <div className="h-screen bg-gray-900 animate-pulse" />,
+  ssr: true,
+});
+
+const BiomeShowcase = dynamic(() => import('@/components/sections/biome/BiomeShowcase').then(mod => ({ default: mod.BiomeShowcase })), {
+  loading: () => <div className="h-[70vh] bg-black animate-pulse" />,
+  ssr: true,
+});
+
+const BuildingBlocksLibrary = dynamic(() => import('@/components/sections/biome/BuildingBlocksLibrary').then(mod => ({ default: mod.BuildingBlocksLibrary })), {
+  loading: () => <div className="h-screen bg-gray-900 animate-pulse" />,
+  ssr: true,
+});
+
+const BiomeEvolution = dynamic(() => import('@/components/sections/biome/BiomeEvolution').then(mod => ({ default: mod.BiomeEvolution })), {
+  loading: () => <div className="h-screen bg-white animate-pulse" />,
+  ssr: true,
+});
+
+const BiomeWhoItsFor = dynamic(() => import('@/components/sections/biome/BiomeWhoItsFor').then(mod => ({ default: mod.BiomeWhoItsFor })), {
+  loading: () => <div className="h-screen bg-gray-900 animate-pulse" />,
+  ssr: true,
+});
+
+const BiomeAccessForm = dynamic(() => import('@/components/sections/biome/BiomeAccessForm').then(mod => ({ default: mod.BiomeAccessForm })), {
+  loading: () => <div className="h-screen bg-white animate-pulse" />,
+  ssr: true,
+});
+
+const BiomeFAQ = dynamic(() => import('@/components/sections/biome/BiomeFAQ').then(mod => ({ default: mod.BiomeFAQ })), {
+  loading: () => <div className="h-screen bg-gray-900 animate-pulse" />,
+  ssr: true,
+});
 
 export default function BiomePage() {
   const [showcaseImageIndex, setShowcaseImageIndex] = useState<number | undefined>(undefined);
 
   return (
-    <main className="min-h-screen">
-      <BiomeHero />
-      <WhatIsBiome />
-      <BiomeShowcase externalIndex={showcaseImageIndex} />
-      <BuildingBlocksLibrary />
-      <BiomeEvolution onStageClick={setShowcaseImageIndex} />
-      <BiomeWhoItsFor />
-      <BiomeAccessForm />
-      <BiomeFAQ />
-    </main>
+    <ErrorBoundary>
+      <main className="min-h-screen">
+        <Suspense fallback={<div className="min-h-screen bg-black" />}>
+          <BiomeHero />
+          <WhatIsBiome />
+          <BiomeShowcase externalIndex={showcaseImageIndex} />
+          <BuildingBlocksLibrary />
+          <BiomeEvolution onStageClick={setShowcaseImageIndex} />
+          <BiomeWhoItsFor />
+          <BiomeAccessForm />
+          <BiomeFAQ />
+        </Suspense>
+      </main>
+    </ErrorBoundary>
   );
 }
 
