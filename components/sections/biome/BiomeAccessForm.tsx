@@ -116,7 +116,7 @@ Sent from BIOME Landing Page
             </h2>
             <p className="text-lg text-white/80">
               Get instant access to space-efficient, modular interiors. Download BIM-ready 3D models, 
-              deploy proven configurations, and maximize your project's m³-to-m² value.
+              deploy proven configurations, and maximize your project&apos;s m³-to-m² value.
             </p>
           </motion.div>
 

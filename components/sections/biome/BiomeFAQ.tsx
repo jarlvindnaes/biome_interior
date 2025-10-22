@@ -17,7 +17,7 @@ export const BiomeFAQ: React.FC = () => {
       answer: "BIOME interiors are designed for volumetric efficiency—maximizing functional living space per cubic meter. All components are modular and interchangeable, so layouts can be configured during design and reconfigured after move-in."
     },
     {
-      question: "What's included in the building blocks library?",
+      question: "What&apos;s included in the building blocks library?",
       answer: "You get BIM-ready 3D models of kitchen modules, bathroom units, storage systems, furniture, and complete interior configurations. Plus materials, specs, and assembly guides—all optimized for space efficiency."
     },
     {

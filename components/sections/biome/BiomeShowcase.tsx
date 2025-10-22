@@ -30,7 +30,7 @@ export const BiomeShowcase: React.FC<BiomeShowcaseProps> = ({ externalIndex }) =
 
   // Auto-advance images every 5 seconds (unless externally controlled)
   useEffect(() => {
-    if (externalIndex !== undefined) return; // Don't auto-advance if externally controlled
+    if (externalIndex !== undefined) return; // Don&apos;t auto-advance if externally controlled
     
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);

@@ -29,7 +29,7 @@ export const BuildingBlocksLibrary: React.FC = () => {
     },
     {
       title: "Bathroom Modules",
-      description: "Space-efficient wet units with utilities pre-integrated. Compact layouts that don't compromise functionality.",
+      description: "Space-efficient wet units with utilities pre-integrated. Compact layouts that don&apos;t compromise functionality.",
       badge: "6+ Variants",
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
